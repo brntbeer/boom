@@ -14,6 +14,10 @@ module Boom
           `echo '#{item.value}' | tr -d "\n" | pbcopy`
         end
 
+				if RUBY_PLATFORM =~ /x86_64-linux/
+					`echo '#{item.value}' | tr -d "\n" | xclip -sel clip`
+				end
+
         "Boom! We just copied #{item.value} to your clipboard."
       end
 
